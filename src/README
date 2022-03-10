@@ -1,0 +1,7 @@
+Instrukce k instalaci:
+- ujištěte se, že máte korektně nainstalovaný ulozto-downloader (návod zde: https://github.com/setnicka/ulozto-downloader/blob/master/README.md)
+- před prvním spuštěním Stahovače spusťte soubor First-Run.sh, který vytvoří konfigurační složku a přesune do ní potřebný soubor call-python.sh
+--> BEZ TOHOTO KROKU NEBUDE STAHOVAČ FUNGOVAT
+
+Následně můžete Stahovač standardně používat.
+Binárku Stahovače je možné spouštět z libovolného umístění.
