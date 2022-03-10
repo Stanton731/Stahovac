@@ -1,0 +1,113 @@
+object Form4: TForm4
+  Left = 439
+  Height = 353
+  Top = 203
+  Width = 480
+  BorderStyle = bsSingle
+  Caption = 'Nápověda k počtu částí'
+  ClientHeight = 353
+  ClientWidth = 480
+  LCLVersion = '2.2.0.4'
+  object StaticText1: TStaticText
+    Left = 6
+    Height = 54
+    Top = 8
+    Width = 472
+    Caption = 'K určení počtu částí je důležité znát rychlost Vašeho internetového připojení.'#10'Rychlost můžete změřit online (položka Download) kliknutím na tlačítko níže.'
+    TabOrder = 0
+  end
+  object StaticText3: TStaticText
+    Left = 6
+    Height = 88
+    Top = 216
+    Width = 397
+    BorderStyle = sbsSunken
+    Caption = 'Uloz.to omezuje rychlost free stahování na 300KBps.'#10'Jedná se však o maximální rychlost, reálná většinou bývá nižší.'#10'Proto není nutné zvolit vypočtený počet částí,'#10'vhodnější je zvolit menší počet.'
+    TabOrder = 1
+  end
+  object Button1: TButton
+    Left = 128
+    Height = 35
+    Top = 56
+    Width = 221
+    Caption = 'Zjistit rychlost'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object Button2: TButton
+    Left = 246
+    Height = 35
+    Top = 312
+    Width = 221
+    Caption = 'Zavřít'
+    OnClick = Button2Click
+    TabOrder = 3
+  end
+  object Image1: TImage
+    Left = 424
+    Height = 32
+    Top = 240
+    Width = 32
+    Picture.Data = {
+      055449636F6EFE0200000000010001002020100001000400E802000016000000
+      2800000020000000400000000100040000000000000000000000000000000000
+      000000000000000000000000FF00000080808000C0C0C000FFFFFF0000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000022000000000000000000000000000
+      0022200000000000000000000000000000022000000000000000000000000000
+      0402200000000000000000000000000044022000000000000000000000000204
+      4402200000000000000000000022220444022222000000000000000022200034
+      4402222222000000000000020003444444300022222000000000000034444444
+      4444430022220000000000344444444444444443022220000000044444444444
+      4444444440222200000044444444444444444444440222200024444444411111
+      1111444444402220023444444444411111444444444302220244444444444111
+      1144444444440222234444444444411111444444444430222444444444444111
+      1144444444444022244444444444411111444444444440222444444444444111
+      1144444444444022244444444444411111444444444440222444444444411111
+      1144444444444020234444444444444444444444444430200244444444444444
+      4444444444440200023444444444311113444444444300000024444444441111
+      1144444444400000000244444444111111444444440000000000244444443111
+      1344444440000000000002344444444444444443200000000000002234444444
+      4444432200000000000000002223444444322200000000000000000000022222
+      2220000000000000FFFFE7FFFFFFC7FFFFFF87FFFFFF07FFFFFE07FFFFF807FF
+      FFC000FFFF00003FFE00001FFC00000FF8000007F0000003E0000001C0000001
+      8000000080000000000000000000000000000000000000000000000000000001
+      000000018000000380000007C000000FE000001FF000003FF800007FFC0000FF
+      FF0003FFFFE01FFF
+    }
+  end
+  object StaticText2: TStaticText
+    Left = 6
+    Height = 67
+    Top = 99
+    Width = 460
+    Caption = 'Výpočet nejvyššího efektivního počtu částí :'#10#10'Naměřená rychlost v Mbps:'
+    TabOrder = 4
+  end
+  object Edit1: TEdit
+    Left = 184
+    Height = 30
+    Top = 136
+    Width = 80
+    NumbersOnly = True
+    OnChange = Edit1Change
+    TabOrder = 5
+  end
+  object Label1: TLabel
+    Left = 6
+    Height = 19
+    Top = 184
+    Width = 231
+    Caption = 'Zjištěný nejvyšší efektivní počet částí: '
+    Enabled = False
+  end
+  object Button3: TButton
+    Left = 366
+    Height = 28
+    Top = 136
+    Width = 101
+    Caption = 'Vypočítat'
+    OnClick = Button3Click
+    TabOrder = 6
+  end
+end
