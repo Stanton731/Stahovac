@@ -156,34 +156,106 @@ begin
     {$IFDEF Linux}
     begin
     if FileExists('/usr/bin/konsole') then
-      terminal:='konsole'
-    else if FileExists('/usr/bin/gnome-terminal') then
-      terminal:='gnome-terminal'
-    else if FileExists('/usr/bin/xfce4-terminal') then
-      terminal:='xfce-terminal'
-    else if FileExists('/usr/bin/mate-terminal') then
-      terminal:='mate-terminal'
-    else if FileExists('/usr/bin/lxterminal') then
-      terminal:='lxterminal'
-    else
-      terminal:='xterm'
-    end;
-    begin
-     if CAPTCHA.Checked = True then
+     begin
+      terminal:='konsole';
       begin
+       if CAPTCHA.Checked = True then
+        begin
           CAPTCHAProcess.CommandLine := terminal + ' -e /bin/bash -l -c "echo "captcha=--auto-captcha" > ~/.config/stahovac/captcha.txt"';
-      end
-     else if CAPTCHA.Checked = False then
-      begin
+        end
+       else if CAPTCHA.Checked = False then
+        begin
        CAPTCHAProcess.CommandLine := terminal + ' -e /bin/bash -l -c "echo "captcha=" > ~/.config/stahovac/captcha.txt"';
-      end
+        end
+      end;
+      SaveProcess.CommandLine := terminal + ' -e /bin/bash -l -c "echo "dir=' + slozka + '" > ~/.config/stahovac/directory.txt"';
+      lastDir.CommandLine := terminal + ' -e /bin/bash -l -c "echo "' + slozka + '" > ~/.config/stahovac/lastDir.txt"';
+      URLProcess.CommandLine := terminal + ' -e /bin/bash -l -c "echo "url=' + adresa + '" > ~/.config/stahovac/url.txt"';
+      PartsProcess.CommandLine := terminal + ' -e /bin/bash -l -c "echo "parts=' + casti + '" > ~/.config/stahovac/parts.txt"';
+      lastParts.CommandLine := terminal + ' -e /bin/bash -l -c "echo "' + casti + '" > ~/.config/stahovac/lastParts.txt"';
+      StartProcess.CommandLine := terminal + ' -e /bin/bash -l -c "~/.config/stahovac/call-python.sh"';
+     end
+    else if FileExists('/usr/bin/gnome-terminal') then
+     begin
+      terminal:='gnome-terminal';
+      begin
+       if CAPTCHA.Checked = True then
+        begin
+          CAPTCHAProcess.CommandLine := 'lxterminal -e "echo "captcha=--auto-captcha" > ~/.config/stahovac/captcha.txt"';
+        end
+       else if CAPTCHA.Checked = False then
+        begin
+          CAPTCHAProcess.CommandLine := 'lxterminal -e "echo "captcha=" > ~/.config/stahovac/captcha.txt"';
+        end
+      end;
+      SaveProcess.CommandLine := 'lxterminal -e "echo "dir=' + slozka + '" > ~/.config/stahovac/directory.txt"';
+      lastDir.CommandLine := 'lxterminal -e "echo "' + slozka + '" > ~/.config/stahovac/lastDir.txt"';
+      URLProcess.CommandLine := 'lxterminal -e "echo "url=' + adresa + '" > ~/.config/stahovac/url.txt"';
+      PartsProcess.CommandLine := 'lxterminal -e "echo "parts=' + casti + '" > ~/.config/stahovac/parts.txt"';
+      lastParts.CommandLine := 'lxterminal -e "echo "' + casti + '" > ~/.config/stahovac/lastParts.txt"';
+      StartProcess.CommandLine := 'gnome-terminal -- bash -c "~/.config/stahovac/call-python.sh; exec bash"';
+     end
+    else if FileExists('/usr/bin/xfce4-terminal') then
+     begin
+      terminal:='xfce4-terminal';
+      begin
+       if CAPTCHA.Checked = True then
+        begin
+          CAPTCHAProcess.CommandLine := 'lxterminal -e "echo "captcha=--auto-captcha" > ~/.config/stahovac/captcha.txt"';
+        end
+       else if CAPTCHA.Checked = False then
+        begin
+          CAPTCHAProcess.CommandLine := 'lxterminal -e "echo "captcha=" > ~/.config/stahovac/captcha.txt"';
+        end
+      end;
+      SaveProcess.CommandLine := 'lxterminal -e "echo "dir=' + slozka + '" > ~/.config/stahovac/directory.txt"';
+      lastDir.CommandLine := 'lxterminal -e "echo "' + slozka + '" > ~/.config/stahovac/lastDir.txt"';
+      URLProcess.CommandLine := 'lxterminal -e "echo "url=' + adresa + '" > ~/.config/stahovac/url.txt"';
+      PartsProcess.CommandLine := 'lxterminal -e "echo "parts=' + casti + '" > ~/.config/stahovac/parts.txt"';
+      lastParts.CommandLine := 'lxterminal -e "echo "' + casti + '" > ~/.config/stahovac/lastParts.txt"';
+      StartProcess.CommandLine := 'xfce4-terminal -e "bash -c "~/.config/stahovac/call-python.sh""';
+     end
+    else if FileExists('/usr/bin/mate-terminal') then
+     begin
+      terminal:='mate-terminal';
+      begin
+       if CAPTCHA.Checked = True then
+        begin
+          CAPTCHAProcess.CommandLine := 'lxterminal -e "echo "captcha=--auto-captcha" > ~/.config/stahovac/captcha.txt"';
+        end
+       else if CAPTCHA.Checked = False then
+        begin
+          CAPTCHAProcess.CommandLine := 'lxterminal -e "echo "captcha=" > ~/.config/stahovac/captcha.txt"';
+        end
+      end;
+      SaveProcess.CommandLine := 'lxterminal -e "echo "dir=' + slozka + '" > ~/.config/stahovac/directory.txt"';
+      lastDir.CommandLine := 'lxterminal -e "echo "' + slozka + '" > ~/.config/stahovac/lastDir.txt"';
+      URLProcess.CommandLine := 'lxterminal -e "echo "url=' + adresa + '" > ~/.config/stahovac/url.txt"';
+      PartsProcess.CommandLine := 'lxterminal -e "echo "parts=' + casti + '" > ~/.config/stahovac/parts.txt"';
+      lastParts.CommandLine := 'lxterminal -e "echo "' + casti + '" > ~/.config/stahovac/lastParts.txt"';
+      StartProcess.CommandLine := 'mate-terminal -e "bash -c "~/.config/stahovac/call-python.sh""';
+     end
+    else
+     begin
+      terminal:='lxterminal';
+      begin
+       if CAPTCHA.Checked = True then
+        begin
+          CAPTCHAProcess.CommandLine := 'lxterminal -e "echo "captcha=--auto-captcha" > ~/.config/stahovac/captcha.txt"';
+        end
+       else if CAPTCHA.Checked = False then
+        begin
+          CAPTCHAProcess.CommandLine := 'lxterminal -e "echo "captcha=" > ~/.config/stahovac/captcha.txt"';
+        end
+      end;
+      SaveProcess.CommandLine := 'lxterminal -e "echo "dir=' + slozka + '" > ~/.config/stahovac/directory.txt"';
+      lastDir.CommandLine := 'lxterminal -e "echo "' + slozka + '" > ~/.config/stahovac/lastDir.txt"';
+      URLProcess.CommandLine := 'lxterminal -e "echo "url=' + adresa + '" > ~/.config/stahovac/url.txt"';
+      PartsProcess.CommandLine := 'lxterminal -e "echo "parts=' + casti + '" > ~/.config/stahovac/parts.txt"';
+      lastParts.CommandLine := 'lxterminal -e "echo "' + casti + '" > ~/.config/stahovac/lastParts.txt"';
+      StartProcess.CommandLine := 'lxterminal -e "bash -c "~/.config/stahovac/call-python.sh""';
+     end
     end;
-    SaveProcess.CommandLine := terminal + ' -e /bin/bash -l -c "echo "dir=' + slozka + '" > ~/.config/stahovac/directory.txt"';
-    lastDir.CommandLine := terminal + ' -e /bin/bash -l -c "echo "' + slozka + '" > ~/.config/stahovac/lastDir.txt"';
-    URLProcess.CommandLine := terminal + ' -e /bin/bash -l -c "echo "url=' + adresa + '" > ~/.config/stahovac/url.txt"';
-    PartsProcess.CommandLine := terminal + ' -e /bin/bash -l -c "echo "parts=' + casti + '" > ~/.config/stahovac/parts.txt"';
-    lastParts.CommandLine := terminal + ' -e /bin/bash -l -c "echo "' + casti + '" > ~/.config/stahovac/lastParts.txt"';
-    StartProcess.CommandLine := terminal + ' -e /bin/bash -l -c "~/.config/stahovac/call-python.sh"';
     {$ENDIF Linux}
 
     //AProcess.Parameters.Add('-l');
